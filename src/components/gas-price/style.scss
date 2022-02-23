@@ -1,0 +1,26 @@
+.gas-price {
+  display: flex;
+  flex-direction: row;
+  width: 230px;
+  .eth-logo {
+    height: 22px;
+    margin-right: 10px;
+    margin-bottom: -6px;
+  }
+  .inner-gas-price {
+    font-size: 16px;
+    line-height: 22px;
+    span {
+      font-weight: 600;
+    }
+    .percent {
+      margin-left: 5px;
+    }
+    .red {
+      color: #e74c3c;
+    }
+    .green {
+      color: #2ecc71;
+    }
+  }
+}

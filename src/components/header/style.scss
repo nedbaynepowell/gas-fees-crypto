@@ -1,0 +1,23 @@
+.header {
+  height: 50px;
+  background-color: #333333;
+  width: 100vw;
+  .inner-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  p {
+    color: #bdbdbd;
+  }
+  select {
+    color: #bdbdbd;
+    background: none;
+    border: none;
+    height: 30px;
+    margin-top: 10px;
+  }
+}

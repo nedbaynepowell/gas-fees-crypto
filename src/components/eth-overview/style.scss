@@ -1,0 +1,78 @@
+.eth-overview {
+  width: 100vw;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 280px;
+  position: relative;
+
+  .next-update {
+    position: absolute;
+    left: 15px;
+    top: 0px;
+  }
+  .date-container {
+    display: flex;
+    flex-direction: row;
+    img {
+      width: 25px;
+      margin-top: 14px;
+      margin-left: 10px;
+    }
+    .data {
+      text-align: center;
+      color: #abacab;
+    }
+  }
+  .what-gwei {
+    color: #4880ce;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .tooltip {
+    .tooltiptext {
+      visibility: hidden;
+      width: 220px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 10px;
+
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 1;
+    }
+    &:hover .tooltiptext {
+      visibility: visible;
+    }
+  }
+  .eth-price-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 910px;
+    .eth-price {
+      .title {
+        font-size: 26px;
+        span {
+          color: #abacab;
+        }
+        margin-bottom: 15px;
+      }
+      div.value {
+        color: #abacab;
+        font-size: 24px;
+        span.value {
+          font-size: 60px;
+          font-weight: 600;
+          color: black;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

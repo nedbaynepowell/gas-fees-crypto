@@ -1,0 +1,16 @@
+.main-app {
+  background: #FAFAFB;
+  min-height: 100vh;
+  .gas-price {
+    max-width: 1000px;
+    width: 100%;
+    margin: 25px auto;
+  }
+  .eth-overview {
+    margin-top: 40px;
+  }
+  .gas-slider {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}

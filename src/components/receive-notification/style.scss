@@ -1,0 +1,32 @@
+.receive-notification {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 50px;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    input {
+      width: calc(100% - 23px);
+      height: 40px;
+      margin-bottom: 15px;
+      padding: 0 10px;
+      font-size: 18px;
+    }
+    button {
+      width: 100%;
+      height: 40px;
+      background-color: #2D67CA;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      font-size: 18px;
+      line-height: 40px;
+      cursor: pointer;
+      &:hover {
+        opacity: .9;
+      }
+    }
+  }
+}
