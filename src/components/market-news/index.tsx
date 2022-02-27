@@ -22,7 +22,6 @@ const MarketNews = () => {
   useEffect(() => {
     const asyncEffect = async () => {
       const newsRes = (await fetchNews()) as NewsItem[];
-      console.log("newsRes", newsRes);
       setNews(newsRes);
     };
     asyncEffect();
@@ -32,8 +31,8 @@ const MarketNews = () => {
     <div className="market-news">
       <div className="inner-container">
         <h2>Market News</h2>
-        {news.slice(0, 6).map((i) => (
-          <div className="market-news-item">
+        {news.slice(0, 6).map((i, index) => (
+          <div key={index} className="market-news-item">
             <div className="col large">
               <div className="source-container">
                 <p>{i.source.name}</p>

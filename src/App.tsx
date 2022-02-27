@@ -106,6 +106,7 @@ function App() {
         currency={currency}
         averagePriceGWEI={gasPrices.average}
         averagePriceETH={convertToCurrency(averagePriceETH)}
+        ethPrice={convertToCurrency(ETHPrice.price)}
       />
       <ChartHeatmap historicalGasData={historicalGasData} />
       <ChartLine historicalGasData={historicalGasData} />

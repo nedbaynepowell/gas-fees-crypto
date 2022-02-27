@@ -7,6 +7,7 @@ const minThreshold = 20;
 const maxThreshold = 1000;
 
 const ReceiveNotification = () => {
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [threshold, setThreshold] = useState(0);
   const [emailError, setEmailError] = useState(false);
@@ -21,8 +22,10 @@ const ReceiveNotification = () => {
     } else if (!validEmail(email)) {
       setEmailError(true);
     } else {
+      setLoading(true);
       await addUserToNotifications(email, threshold);
       setNotificationComplete(true);
+      setLoading(false);
     }
   };
 
@@ -44,8 +47,8 @@ const ReceiveNotification = () => {
           <div className="notification-complete">
             <h2>Notification complete!</h2>
             <p>
-              You will receive a notification when the price drops by{" "}
-              {threshold}
+              You will receive a notification when the price drops below{" "}
+              {threshold} GWEI.
             </p>
           </div>
         ) : (
@@ -69,7 +72,7 @@ const ReceiveNotification = () => {
               Invalid threshold. Must be between {minThreshold} and{" "}
               {maxThreshold}.
             </p>
-            <button>Watch this price</button>
+            <button disabled={loading}>Watch this price</button>
           </>
         )}
       </form>

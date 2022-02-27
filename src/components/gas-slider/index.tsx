@@ -39,10 +39,11 @@ const GasSlider = (props: Props) => {
         min="0"
         max="200"
         value={props.averagePrice}
+        readOnly
       />
       <label htmlFor="volume">
         {sliderValues.map((v) => (
-          <span>{v}</span>
+          <span key={v}>{v}</span>
         ))}
       </label>
     </div>

@@ -1,7 +1,24 @@
 .market-news {
   background-color: white;
   width: 100%;
-  padding: 50px;
+  padding: 50px 0;
+  @media screen and (max-width: 900px) {
+    padding: 10px !important;
+    .title {
+      font-size: 15px !important;
+    }
+    .col.large {
+      width: 55% !important;
+    }
+    .source-container {
+      font-size: 12px !important;
+    }
+    .market-news-item {
+      padding: 0 !important;
+      width: 90% !important;
+      padding-bottom: 20px !important;
+    }
+  }
   .inner-container {
     width: 100%;
     max-width: 800px;

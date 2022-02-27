@@ -2,6 +2,18 @@
   width: 100%;
   max-width: 500px;
   margin: 0 auto 50px;
+  @media screen and (max-width: 900px) {
+    margin-top: 20px !important;
+    h1 {
+      font-size: 16px !important;
+    }
+    input {
+      width: 85% !important;
+    }
+    button {
+      width: 90% !important;
+    }
+  }
   form {
     display: flex;
     flex-direction: column;

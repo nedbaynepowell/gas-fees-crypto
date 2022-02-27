@@ -1,7 +1,14 @@
 .gas-price {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 230px;
+  @media screen and (max-width: 900px) {
+    display: flex !important;
+    justify-content: flex-start !important;
+    flex-direction: row !important;
+    width: 90% !important;
+  }
   .eth-logo {
     height: 22px;
     margin-right: 10px;

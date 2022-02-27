@@ -31,7 +31,7 @@ const GasPrice = (props: Props) => {
           {props.ethPrice.price.toFixed(2)}
         </span>
         <span className={`percent ${percentIsNegative ? "red" : "green"}`}>
-          {(props.ethPrice.percent_change * 100).toFixed(2)}%
+          {(props.ethPrice.percent_change).toFixed(2)}%
         </span>
       </div>
     </div>
