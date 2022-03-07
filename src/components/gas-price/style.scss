@@ -1,7 +1,7 @@
 .gas-price {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   width: 230px;
   @media screen and (max-width: 900px) {
     display: flex !important;

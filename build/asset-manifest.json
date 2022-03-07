@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.ee8f6da7.css",
-    "main.js": "/static/js/main.ce6535fd.js",
+    "main.css": "/static/css/main.a1f085b3.css",
+    "main.js": "/static/js/main.c86f4f0a.js",
     "static/media/twitter-logo.svg": "/static/media/twitter-logo.24281858575b10b9a6a3caa943340993.svg",
-    "static/media/eth-logo.svg": "/static/media/eth-logo.c729bd46b192b8ea53dcc0d30b14ad9e.svg",
     "index.html": "/index.html",
-    "main.ee8f6da7.css.map": "/static/css/main.ee8f6da7.css.map",
-    "main.ce6535fd.js.map": "/static/js/main.ce6535fd.js.map"
+    "static/media/eth-logo.svg": "/static/media/eth-logo.c729bd46b192b8ea53dcc0d30b14ad9e.svg",
+    "main.a1f085b3.css.map": "/static/css/main.a1f085b3.css.map",
+    "main.c86f4f0a.js.map": "/static/js/main.c86f4f0a.js.map"
   },
   "entrypoints": [
-    "static/css/main.ee8f6da7.css",
-    "static/js/main.ce6535fd.js"
+    "static/css/main.a1f085b3.css",
+    "static/js/main.c86f4f0a.js"
   ]
 }
