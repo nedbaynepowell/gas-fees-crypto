@@ -51,6 +51,18 @@ app.post("/addUserToNotifications", async (req, res) => {
   }
 });
 
+app.get("/historicalData", async (req, res) => {
+  try {
+    const response = (await axios.get(
+      "https://livdir.com/ethgaspricechart/log/all.json"
+    )) as any;
+
+    res.json(response.data);
+  } catch (error) {
+    console.log("historical data error", error);
+    res.json("/historicalData error");
+  }
+});
 app.get("/news", async (req, res) => {
   try {
     const publicApiKey = "2250e5a63f76438c8a5e178e63f26ae0";
@@ -71,7 +83,10 @@ export const webApi = functions.https.onRequest(main);
 exports.scheduledFunction = functions.pubsub
   .schedule("every 5 minutes")
   .onRun(async (_context) => {
-    const list = await db.collection("notification-list").where("last_nofitication_sent", "<", Date.now() - 1000 * 60 * 60).get();
+    const list = await db
+      .collection("notification-list")
+      .where("last_nofitication_sent", "<", Date.now() - 1000 * 60 * 60)
+      .get();
     const response = (await axios.get(
       "https://ethgasstation.info/json/ethgasAPI.json"
     )) as any;

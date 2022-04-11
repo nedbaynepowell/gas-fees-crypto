@@ -1,11 +1,13 @@
 .main-app {
-  background: #FAFAFB;
+  background: #f8f9fb;
   min-height: 100vh;
   overflow: hidden;
   .gas-price {
     max-width: 1000px;
-    width: 100%;
-    margin: 25px auto;
+    width: calc(100% - 560px);
+    margin: 15px 10px;
+    min-width: 240px;
+    border-right: 1px solid #ccc;
   }
   .eth-overview {
     margin-top: 40px;
@@ -13,5 +15,12 @@
   .gas-slider {
     margin-top: 25px;
     margin-bottom: 25px;
+  }
+  .charts {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: calc(100vw - 100px);
+    margin: 0 auto;
   }
 }

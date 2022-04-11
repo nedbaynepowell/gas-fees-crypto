@@ -20,7 +20,17 @@ const GasSelects = (props: Props) => {
       <input
         disabled={true}
         className="avg-price"
-        value={isMobile ? `${(props.ethPrice * props.averagePriceETH).toFixed(5)} ${props.currency}` : `${(props.ethPrice * props.averagePriceETH).toFixed(5)}                                                          | ${props.currency}`}
+        value={
+          isMobile
+            ? `${(props.ethPrice * props.averagePriceETH).toFixed(5)} ${
+                props.currency
+              }`
+            : `${(props.ethPrice * props.averagePriceETH).toFixed(
+                5
+              )}                                                          | ${
+                props.currency
+              }`
+        }
       />
     </div>
   );

@@ -1,0 +1,103 @@
+.bar-chart-container {
+  display: flex;
+  width: calc(50% - 12.5px);
+  margin-right: 25px;
+  position: relative;
+  padding-top: 50px;
+  .suggestion {
+    position: absolute;
+    font-weight: 600;
+    margin: 0;
+    top: 0;
+    font-size: 22px;
+
+    &.green {
+      color: #50aa63;
+    }
+    &.blue {
+      color: #4299f8;
+    }
+    &.yellow {
+      color: #f8cd51;
+    }
+    &.red {
+      color: #e05634;
+    }
+  }
+  .bar-chart {
+    display: flex;
+    flex-direction: row;
+    height: 370px;
+    box-shadow: 0px 0px 1px 1px #dedede;
+    border-radius: 5px;
+    padding-top: 60px;
+    padding-left: 25px;
+    background-color: white;
+    width: 100%;
+    position: relative;
+    .bar-container {
+      position: absolute;
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 350px;
+      left: 150px;
+      z-index: 1;
+      div {
+        height: 45px;
+        background-color: #6d86ea;
+      }
+    }
+    .labels-y {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 230px;
+      width: 175px;
+      p {
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+    .labels-x {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: calc(100% - 200px);
+      left: 150px;
+      p {
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+    .line-container {
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      left: 150px;
+      justify-content: space-between;
+      height: 300px;
+      width: calc(100% - 200px);
+      .line {
+        height: 300px;
+        border-left: 1px solid #eee;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        p {
+          display: flex;
+          position: fixed;
+          justify-content: center;
+          align-items: center;
+          margin-top: 0;
+          margin-bottom: -20px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

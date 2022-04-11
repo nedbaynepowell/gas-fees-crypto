@@ -14,7 +14,9 @@ import ReceiveNotification from "./components/receive-notification";
 import { GWEItoETH } from "./utils//crypto-conversions";
 
 import "./App.scss";
-import MarketNews from "./components/market-news";
+import CryptoNews from "./components/market-news";
+import BarChart from "./components/charts/bar";
+import LineChart from "./components/charts/line";
 
 export type Currency = "USD" | "EUR" | "GBP" | "CNY";
 interface CurrencyConversion {
@@ -89,8 +91,8 @@ function App() {
 
   return (
     <div className="main-app">
-      <Header setCurrency={setCurrency} />
-      <GasPrice
+      <Header
+        setCurrency={setCurrency}
         ethPrice={{
           price: convertToCurrency(ETHPrice.price),
           percent_change: ETHPrice.percent_change,
@@ -101,17 +103,19 @@ function App() {
         gasPrices={gasPrices}
         nextUpdateInSeconds={nextUpdateInSeconds}
       />
-      <GasSlider currency={currency} averagePrice={gasPrices.average} />
-      <GasSelects
-        currency={currency}
-        averagePriceGWEI={gasPrices.average}
-        averagePriceETH={convertToCurrency(averagePriceETH)}
-        ethPrice={convertToCurrency(ETHPrice.price)}
-      />
-      <ChartHeatmap historicalGasData={historicalGasData} />
-      <ChartLine historicalGasData={historicalGasData} />
+      <div className="charts">
+        <BarChart
+          avgGasPrice={gasPrices.average}
+          widths={{
+            slow: 125,
+            standard: 140,
+            fast: 155,
+          }}
+        />
+        <LineChart historicalGasData={historicalGasData} />
+      </div>
       <ReceiveNotification />
-      <MarketNews />
+      <CryptoNews />
     </div>
   );
 }
