@@ -1,11 +1,11 @@
 .eth-overview {
-  width: calc(100vw - 100px);
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 280px;
   position: relative;
   padding: 0 50px;
+  margin-top: 20px;
   
   h1 {
     text-align: left;

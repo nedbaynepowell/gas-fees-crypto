@@ -1,2 +1,3 @@
 /node_modules
 server/functions/src/test.ts
+server/functions/src/serviceAccountKey.json

@@ -7,7 +7,10 @@ import * as bodyParser from "body-parser";
 import * as moment from "moment";
 import * as sendGridClient from "@sendgrid/mail";
 import * as cors from "cors";
+import { parse } from "node-html-parser";
 import axios from "axios";
+import { getStorage } from "firebase-admin/storage";
+import { writeFileSync } from "fs";
 
 sendGridClient.setApiKey(functions.config().sendgrid.secret_key);
 
@@ -26,9 +29,49 @@ main.use(bodyParser.urlencoded({ extended: false }));
 dotenv.config();
 
 // Initialize Firebase Firestore
-initializeApp();
+initializeApp({
+  storageBucket: "gas-fees-crypto.appspot.com",
+});
 
 const db = getFirestore();
+
+exports.scheduledFunction = functions.pubsub
+  .schedule("every 24 hours")
+  .onRun(async (_context) => {
+    const html = await axios
+      .get("https://coinmarketcap.com/view/ethereum-ecosystem/")
+      .then((r) => r.data);
+
+    const root = parse(html);
+
+    const script = JSON.parse(root.getElementById("__NEXT_DATA__").text);
+    const cleaned =
+      script.props.initialState.cryptocurrency.listingLatest.data.map(
+        (item: any) => ({
+          name: item.name,
+          symbol: item.symbol,
+          price: item.quote.USD.price,
+          percentChange24h: item.quote.USD.percentChange24h,
+          percentChange7d: item.quote.USD.percentChange7d,
+          marketCap: item.quote.USD.marketCap,
+          volume: item.quote.USD.volume24h,
+          circulatingSupply: item.circulatingSupply,
+        })
+      );
+
+    writeFileSync("./cryptocurrencies.json", JSON.stringify(cleaned));
+
+    const bucket = getStorage().bucket("gas-fees-crypto.appspot.com");
+    await bucket.upload("./cryptocurrencies.json");
+  });
+
+app.get("/ethereumEcosystem", async (req, res) => {
+  const bucket = getStorage().bucket("gas-fees-crypto.appspot.com");
+  const file = bucket.file("cryptocurrencies.json");
+  const data = await file.download();
+  const json = JSON.parse(data.toString());
+  res.send(json);
+});
 
 app.post("/addUserToNotifications", async (req, res) => {
   try {

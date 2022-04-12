@@ -1,22 +1,19 @@
 import { useEffect, useState } from "react";
 import Header from "./components/header";
-import GasPrice from "./components/gas-price";
 import EthOverview from "./components/eth-overview";
-import GasSlider from "./components/gas-slider";
 import fetchPrices from "./actions/fetchGasPrices";
 import fetchCurrency from "./actions/fetchCurrency";
 import fetchEthPrice from "./actions/fetchEthPrice";
 import fetchHistoricalGas from "./actions/fetchHistoricalGas";
-import GasSelects from "./components/gas-selects";
-import ChartHeatmap from "./components/chart-heatmap";
-import ChartLine from "./components/chart-line";
 import ReceiveNotification from "./components/receive-notification";
-import { GWEItoETH } from "./utils//crypto-conversions";
+import BuySell from "./components/buy-sell";
+import Markets from "./components/markets";
 
 import "./App.scss";
 import CryptoNews from "./components/market-news";
 import BarChart from "./components/charts/bar";
 import LineChart from "./components/charts/line";
+import Sidebar from "./components/sidebar";
 
 export type Currency = "USD" | "EUR" | "GBP" | "CNY";
 interface CurrencyConversion {
@@ -30,13 +27,14 @@ export interface GasPrices {
   average: number;
 }
 
+export type Page = "gas-prices" | "markets" | "news" | "buy-sell";
 function App() {
   const [gasPrices, setGasPrices] = useState<GasPrices>({
     safelow: 0,
     fast: 0,
     average: 0,
   });
-  const [averagePriceETH, setAveragePriceETH] = useState(0);
+  const [page, setPage] = useState<Page>("gas-prices");
   const [currency, setCurrency] = useState<Currency>("USD");
   const [nextUpdateInSeconds, setNextUpdateInSeconds] = useState(0);
   const [ETHPrice, setETHPrice] = useState({ price: 0, percent_change: 0 });
@@ -70,7 +68,7 @@ function App() {
         fast: gasRange.fast / 10,
         average: gasRange.average / 10,
       });
-      setAveragePriceETH(GWEItoETH(gasRange.average / 10));
+      // setAveragePriceETH(GWEItoETH(gasRange.average / 10));
     };
     if (nextUpdateInSeconds === 0) {
       asyncEffect();
@@ -99,23 +97,30 @@ function App() {
         }}
         currency={currency}
       />
-      <EthOverview
-        gasPrices={gasPrices}
-        nextUpdateInSeconds={nextUpdateInSeconds}
-      />
-      <div className="charts">
-        <BarChart
-          avgGasPrice={gasPrices.average}
-          widths={{
-            slow: 125,
-            standard: 140,
-            fast: 155,
-          }}
-        />
-        <LineChart historicalGasData={historicalGasData} />
-      </div>
-      <ReceiveNotification />
-      <CryptoNews />
+      <Sidebar changePage={(p) => setPage(p)} page={page} />
+      {page === "gas-prices" && (
+        <>
+          <EthOverview
+            gasPrices={gasPrices}
+            nextUpdateInSeconds={nextUpdateInSeconds}
+          />
+          <div className="charts">
+            <BarChart
+              avgGasPrice={gasPrices.average}
+              widths={{
+                slow: 125,
+                standard: 140,
+                fast: 155,
+              }}
+            />
+            <LineChart historicalGasData={historicalGasData} />
+          </div>
+          <ReceiveNotification />
+        </>
+      )}
+      {page === "markets" && <Markets />}
+      {page === "buy-sell" && <BuySell />}
+      {page === "news" && <CryptoNews />}
     </div>
   );
 }

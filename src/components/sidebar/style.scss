@@ -1,0 +1,60 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: fixed;
+  left: 0;
+  height: calc(100vh - 55px);
+  background-color: #f8f9fb;
+  width: 60px;
+  border-right: 1px solid #d5d5d7;
+  padding-top: 30px;
+  z-index: 2;
+  transition: width 0.5s ease-out 100ms;
+  overflow: hidden;
+
+  &:hover {
+    width: 300px;
+    button {
+      span {
+        display: block;
+        color: #626367;
+        line-height: 43px;
+        font-size: 15px;
+        min-width: 500px;
+        text-align: left;
+      }
+      &:disabled {
+        background-color: #4164ff;
+        span {
+          color: white;
+        }
+      }
+    }
+  }
+
+  button {
+    background-color: #f8f9fb;
+    border: none;
+    margin-bottom: 30px;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    span {
+      display: none;
+    }
+    img {
+      width: 43px;
+      &:hover {
+        opacity: 0.8;
+      }
+      &.active {
+        width: 43px;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

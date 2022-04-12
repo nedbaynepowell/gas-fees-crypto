@@ -1,0 +1,36 @@
+.markets {
+  padding: 0 50px;
+  margin-top: 20px;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    thead {
+      background-color: white;
+      border-top: 1px solid #888;
+      border-bottom: 1px solid #888;
+      height: 40px;
+      font-size: 14px;
+      :nth-child(1) {
+        text-align: left;
+      }
+      th {
+        padding: 0 10px;
+        text-align: right;
+      }
+    }
+    tbody {
+      tr {
+        height: 100px;
+        background-color: white;
+        border-bottom: 1px solid #ccc;
+        td {
+          text-align: right;
+          padding: 0 10px;
+        }
+        :nth-child(1) {
+          text-align: left;
+        }
+      }
+    }
+  }
+}

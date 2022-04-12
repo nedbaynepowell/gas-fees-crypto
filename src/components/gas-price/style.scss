@@ -4,6 +4,7 @@
   justify-content: flex-start;
   margin-top: 14px;
   max-width: 240px;
+  padding-right: 10px;
   // @media screen and (max-width: 900px) {
   //   display: flex !important;
   //   justify-content: flex-start !important;
@@ -18,7 +19,7 @@
   .inner-gas-price {
     font-size: 16px;
     line-height: 22px;
-    min-width: 230px;
+    min-width: 255px;
     span {
       font-weight: 600;
     }

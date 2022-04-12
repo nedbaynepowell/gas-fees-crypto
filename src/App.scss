@@ -2,15 +2,14 @@
   background: #f8f9fb;
   min-height: 100vh;
   overflow: hidden;
+  padding-left: 60px;
+  padding-top: 50px;
   .gas-price {
     max-width: 1000px;
     width: calc(100% - 560px);
     margin: 15px 10px;
     min-width: 240px;
     border-right: 1px solid #ccc;
-  }
-  .eth-overview {
-    margin-top: 40px;
   }
   .gas-slider {
     margin-top: 25px;
@@ -20,7 +19,6 @@
     display: flex;
     flex-direction: row;
     position: relative;
-    width: calc(100vw - 100px);
-    margin: 0 auto;
+    padding: 0 50px;
   }
 }
