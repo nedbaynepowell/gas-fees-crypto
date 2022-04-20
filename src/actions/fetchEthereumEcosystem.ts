@@ -1,12 +1,12 @@
 export interface EthereumEcosystem {
   name: string;
   symbol: string;
-  price: string;
-  percentChange24h: string;
-  percentChange7d: string;
-  marketCap: string;
-  volume: string;
-  circulatingSupply: string;
+  price: number;
+  percentChange24h: number;
+  percentChange7d: number;
+  marketCap: number;
+  volume: number;
+  circulatingSupply: number;
 }
 const fetchEthereumEcosystem = async (): Promise<EthereumEcosystem[]> => {
   const ecosystemJson = await fetch(

@@ -35,31 +35,31 @@ const Markets = (props: Props) => {
                   {item.name} <span>{item.symbol}</span>
                 </button>
               </td>
-              <td>${twoDecimals(parseFloat(item.price))}</td>
+              <td>${twoDecimals(item.price)}</td>
               <td
                 style={{
                   color:
-                    parseFloat(item.percentChange24h) > 0
+                    item.percentChange24h > 0
                       ? "rgb(22, 199, 132)"
                       : "rgb(234, 57, 67)",
                 }}
               >
-                {twoDecimals(parseFloat(item.percentChange24h))}%
+                {twoDecimals(item.percentChange24h)}%
               </td>
               <td
                 style={{
                   color:
-                    parseFloat(item.percentChange7d) > 0
+                    item.percentChange7d > 0
                       ? "rgb(22, 199, 132)"
                       : "rgb(234, 57, 67)",
                 }}
               >
-                {twoDecimals(parseFloat(item.percentChange7d))}%
+                {twoDecimals(item.percentChange7d)}%
               </td>
-              <td>${intToPrice(parseFloat(item.marketCap))}</td>
-              <td>${intToPrice(parseFloat(item.volume))}</td>
+              <td>${intToPrice(item.marketCap)}</td>
+              <td>${intToPrice(item.volume)}</td>
               <td>
-                {intToPrice(parseFloat(item.circulatingSupply))} {item.symbol}
+                {intToPrice(item.circulatingSupply)} {item.symbol}
               </td>
             </tr>
           ))}

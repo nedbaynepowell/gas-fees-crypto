@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { EthereumEcosystem } from "../../actions/fetchEthereumEcosystem";
 import magnifyingGlassIcon from "../../assets/images/magnifying-glass.svg";
 import "./style.scss";
@@ -9,19 +9,26 @@ interface Props {
 }
 const SearchBar = (props: Props) => {
   const [search, setSearch] = useState("");
-  const [filteredEthereumEcosystem, setFilteredEthereumEcosystem] = useState<
-    EthereumEcosystem[]
-  >([]);
+  const [list, setList] = useState<EthereumEcosystem[]>([]);
+
+  useEffect(() => {
+    setList(
+      props.ethereumEcosystem.filter((coin) =>
+        coin.name.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }, [props.ethereumEcosystem]);
 
   const handleClick = (name: string) => {
     setSearch("");
-    setFilteredEthereumEcosystem([]);
+    setList([]);
     props.loadTradingChart(name);
   };
 
   const handleSearch = (str: string) => {
+    console.log("handleSearch");
     setSearch(str);
-    setFilteredEthereumEcosystem(
+    setList(
       props.ethereumEcosystem.filter((coin) =>
         coin.name.toLowerCase().includes(str.toLowerCase())
       )
@@ -38,9 +45,9 @@ const SearchBar = (props: Props) => {
         onChange={({ target }) => handleSearch(target.value)}
         value={search}
       />
-      {filteredEthereumEcosystem.length ? (
+      {list.length && search ? (
         <div className="search-results">
-          {filteredEthereumEcosystem.map((value, index) => (
+          {list.map((value, index) => (
             <button onClick={() => handleClick(value.name)} key={index}>
               {value.name}
             </button>

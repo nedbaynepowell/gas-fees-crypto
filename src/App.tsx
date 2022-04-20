@@ -11,6 +11,7 @@ import fetchEthereumEcosystem, {
 import ReceiveNotification from "./components/receive-notification";
 import BuySell from "./components/buy-sell";
 import Markets from "./components/markets";
+import ethDefaults from "./assets/data/ethereum-ecosystem.json";
 
 import "./App.scss";
 import CryptoNews from "./components/market-news";
@@ -51,7 +52,7 @@ function App() {
   const [historicalGasData, setHistoricalGasData] = useState<number[][]>([]);
   const [ethereumEcosystem, setEthereumEcosystem] = useState<
     EthereumEcosystem[]
-  >([]);
+  >(ethDefaults);
   const [tradingChart, setTradingChart] = useState<{
     data: LineData[];
     name: string;
