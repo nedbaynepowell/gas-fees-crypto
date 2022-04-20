@@ -43,7 +43,7 @@
       justify-content: space-between;
       align-items: flex-start;
       width: 350px;
-      left: 150px;
+      left: 115px;
       z-index: 1;
       div {
         height: 45px;
@@ -78,7 +78,7 @@
       position: absolute;
       display: flex;
       flex-direction: row;
-      left: 150px;
+      left: 115px;
       justify-content: space-between;
       height: 300px;
       width: calc(100% - 200px);
@@ -90,7 +90,7 @@
         align-items: flex-end;
         p {
           display: flex;
-          position: fixed;
+          position: absolute;
           justify-content: center;
           align-items: center;
           margin-top: 0;

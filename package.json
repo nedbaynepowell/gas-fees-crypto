@@ -12,6 +12,8 @@
     "@types/react-dom": "^18.0.0",
     "chart.js": "^3.7.1",
     "highcharts": "^10.0.0",
+    "lightweight-charts": "^3.8.0",
+    "lodash": "^4.17.21",
     "moment": "^2.29.2",
     "react": "^18.0.0",
     "react-chartjs-2": "^4.1.0",
@@ -45,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.181",
     "sass": "^1.50.0"
   }
 }

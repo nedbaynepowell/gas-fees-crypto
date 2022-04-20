@@ -1,15 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.a1f085b3.css",
-    "main.js": "/static/js/main.c86f4f0a.js",
-    "static/media/twitter-logo.svg": "/static/media/twitter-logo.24281858575b10b9a6a3caa943340993.svg",
+    "main.css": "/static/css/main.04502044.css",
+    "main.js": "/static/js/main.114f8398.js",
+    "static/media/nexo.png": "/static/media/nexo.24baebe10ee8019a21ad.png",
+    "static/media/coinbase.png": "/static/media/coinbase.7a00d55e4f0286ba6a61.png",
+    "static/media/cryptocom.png": "/static/media/cryptocom.df280644573bb67cdf62.png",
+    "static/media/money-icon.svg": "/static/media/money-icon.95d63f51931928ce7f4e0c946d32c2e3.svg",
+    "static/media/blue-money-icon.svg": "/static/media/blue-money-icon.4af47f5b5cf4c41ee2379ca2e2876f67.svg",
+    "static/media/question-logo.svg": "/static/media/question-logo.3339b98ca3fe4716f05152e0a6d1f6f2.svg",
+    "static/media/logo.svg": "/static/media/logo.ec76bd4d8a7a939c09490b08095ba5ef.svg",
     "index.html": "/index.html",
     "static/media/eth-logo.svg": "/static/media/eth-logo.c729bd46b192b8ea53dcc0d30b14ad9e.svg",
-    "main.a1f085b3.css.map": "/static/css/main.a1f085b3.css.map",
-    "main.c86f4f0a.js.map": "/static/js/main.c86f4f0a.js.map"
+    "static/media/blue-gas-icon.svg": "/static/media/blue-gas-icon.5190b3d483dcdfcd549e7270200e3404.svg",
+    "static/media/gas-icon.svg": "/static/media/gas-icon.91ce0e64c256548ec4907deb4944d30d.svg",
+    "static/media/suitcase-icon.svg": "/static/media/suitcase-icon.8b086eb8c42c3d061880808f6a3fc9cc.svg",
+    "static/media/blue-suitcase-icon.svg": "/static/media/blue-suitcase-icon.5e3e13edba9e61828e66223892820a3d.svg",
+    "static/media/form-icon.svg": "/static/media/form-icon.d9c78547d826200409fd6ef0c3f69ebe.svg",
+    "static/media/blue-form-icon.svg": "/static/media/blue-form-icon.8920520a6db8ea51c71cafacaeae475b.svg",
+    "static/media/magnifying-glass.svg": "/static/media/magnifying-glass.ce3e01dc7b299aa70cce9c1a25a44312.svg",
+    "main.04502044.css.map": "/static/css/main.04502044.css.map",
+    "main.114f8398.js.map": "/static/js/main.114f8398.js.map"
   },
   "entrypoints": [
-    "static/css/main.a1f085b3.css",
-    "static/js/main.c86f4f0a.js"
+    "static/css/main.04502044.css",
+    "static/js/main.114f8398.js"
   ]
 }

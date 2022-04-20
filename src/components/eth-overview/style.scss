@@ -6,7 +6,33 @@
   position: relative;
   padding: 0 50px;
   margin-top: 20px;
-  
+
+  @media (max-width: 900px) {
+    .eth-price-container {
+      flex-direction: column !important;
+      .eth-price {
+        width: calc(100% - 20px) !important;
+        height: 40px !important;
+        padding: 10px !important;
+        display: flex;
+        margin-bottom: 10px;
+        .title {
+          font-size: 14px !important;
+          margin-bottom: 5px !important;
+          width: 60% !important;
+        }
+      }
+      div.value {
+        font-size: 14px !important;
+        width: 40% !important;
+        text-align: right;
+      }
+      span.value {
+        font-size: 32px !important;
+      }
+    }
+  }
+
   h1 {
     text-align: left;
     width: 100%;
@@ -20,9 +46,9 @@
     width: 100%;
 
     .eth-price {
-      box-shadow: 0px 0px 1px 1px #DEDEDE;
+      box-shadow: 0px 0px 1px 1px #dedede;
       border-radius: 5px;
-      width: 26%;
+      width: calc(30% - 40px);
       padding: 20px;
       background-color: white;
       .title {

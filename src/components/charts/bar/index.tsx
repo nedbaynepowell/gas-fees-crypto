@@ -1,32 +1,29 @@
+import { GasPrices } from "../../../App";
 import "./style.scss";
 
 interface Props {
-  avgGasPrice: number;
-  widths: {
-    slow: number;
-    standard: number;
-    fast: number;
-  };
+  gasPrices: GasPrices;
 }
 const BarChart = (props: Props) => {
+  const { average, safelow, fast } = props.gasPrices;
   return (
     <div className="bar-chart-container">
-      {props.avgGasPrice > 150 && (
+      {average > 150 && (
         <p className="suggestion red">
           It's a prohibitively expensive time to make a transaction.
         </p>
       )}
-      {props.avgGasPrice > 130 && props.avgGasPrice <= 150 && (
+      {average > 130 && average <= 150 && (
         <p className="suggestion yellow">
           It's an expensive time to make a transaction.
         </p>
       )}
-      {props.avgGasPrice > 130 && props.avgGasPrice <= 150 && (
+      {average > 130 && average <= 150 && (
         <p className="suggestion blue">
           It's an average time to make a transaction.
         </p>
       )}
-      {props.avgGasPrice <= 100 && (
+      {average <= 100 && (
         <p className="suggestion green">
           It's a great time to make a transaction!
         </p>
@@ -39,12 +36,15 @@ const BarChart = (props: Props) => {
         </div>
         <div className="chart">
           <div className="bar-container">
-            <div className="slow" style={{ width: props.widths.slow }} />
+            <div
+              className="slow"
+              style={{ width: `${(safelow / 200) * 100}%` }}
+            />
             <div
               className="standard"
-              style={{ width: props.widths.standard }}
+              style={{ width: `${(average / 200) * 100}%` }}
             />
-            <div className="fast" style={{ width: props.widths.fast }} />
+            <div className="fast" style={{ width: `${(fast / 200) * 100}%` }} />
           </div>
           <div className="line-container">
             <div className="line">

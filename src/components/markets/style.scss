@@ -1,13 +1,26 @@
 .markets {
   padding: 0 50px;
   margin-top: 20px;
+
+  @media (max-width: 900px) {
+    td {
+      max-width: 100px !important;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
   table {
     width: 100%;
     border-collapse: collapse;
+    overflow-x: auto;
+    white-space: nowrap;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
     thead {
       background-color: white;
-      border-top: 1px solid #888;
-      border-bottom: 1px solid #888;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
       height: 40px;
       font-size: 14px;
       :nth-child(1) {
@@ -26,9 +39,23 @@
         td {
           text-align: right;
           padding: 0 10px;
+          font-size: 14px;
+          font-weight: 600;
+          button {
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            &:hover {
+              opacity: .6;
+            }
+          }
         }
         :nth-child(1) {
           text-align: left;
+          span {
+            color: #888;
+          }
         }
       }
     }

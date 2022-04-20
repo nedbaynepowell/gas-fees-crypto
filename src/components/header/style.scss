@@ -7,6 +7,24 @@
   position: fixed;
   top: 0;
   z-index: 3;
+
+  @media (max-width: 1070px) {
+    .title {
+      display: none;
+    }
+    .inner-header .left-bar {
+      min-width: 90px !important;
+    }
+    .search-bar {
+      img {
+        top: 11px !important;
+        height: 15px !important;
+      }
+      input {
+        height: 35px !important;
+      }
+    }
+  }
   .vertical-hr {
     width: 5px;
     background-color: #e9eaee;
@@ -35,7 +53,7 @@
 
     .title {
       font-size: 20px;
-      background: -webkit-linear-gradient(#9cd8fa, #7ba1ea);
+      background: -webkit-linear-gradient(#40f4ff, #4081ff);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -49,7 +67,7 @@
     .logo {
       height: 35px;
       margin-top: 7px;
-      margin-right: 20px;
+      margin-right: 60px;
     }
     .search-bar {
       position: relative;

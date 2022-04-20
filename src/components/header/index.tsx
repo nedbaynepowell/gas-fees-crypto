@@ -2,20 +2,22 @@ import { Currency } from "../../App";
 import GasPrice from "../gas-price";
 import SearchBar from "../search-bar";
 import logo from "../../assets/images/logo.svg";
+import { EthereumEcosystem } from "../../actions/fetchEthereumEcosystem";
 import questionMark from "../../assets/images/question-logo.svg";
 import "./style.scss";
 
 interface Props {
-  setCurrency(currency: Currency): void;
   ethPrice: {
     price: number;
     percent_change: number;
   };
   currency: Currency;
+  ethereumEcosystem: EthereumEcosystem[];
+  setCurrency(currency: Currency): void;
+  loadTradingChart: (name: string) => void;
 }
 
 const Header = (props: Props) => {
-  const handleSearch = () => {};
   return (
     <div className="header">
       <div className="inner-header">
@@ -24,7 +26,10 @@ const Header = (props: Props) => {
           <p className="title">Gas fees crypto</p>
         </div>
         <div className="middle-bar">
-          <SearchBar handleSearch={handleSearch} />
+          <SearchBar
+            loadTradingChart={props.loadTradingChart}
+            ethereumEcosystem={props.ethereumEcosystem}
+          />
           <img className="question-logo" src={questionMark} alt="" />
         </div>
         <div className="right-bar">

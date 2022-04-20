@@ -5,6 +5,9 @@ import fetchPrices from "./actions/fetchGasPrices";
 import fetchCurrency from "./actions/fetchCurrency";
 import fetchEthPrice from "./actions/fetchEthPrice";
 import fetchHistoricalGas from "./actions/fetchHistoricalGas";
+import fetchEthereumEcosystem, {
+  EthereumEcosystem,
+} from "./actions/fetchEthereumEcosystem";
 import ReceiveNotification from "./components/receive-notification";
 import BuySell from "./components/buy-sell";
 import Markets from "./components/markets";
@@ -13,7 +16,9 @@ import "./App.scss";
 import CryptoNews from "./components/market-news";
 import BarChart from "./components/charts/bar";
 import LineChart from "./components/charts/line";
+import TradingChart from "./components/charts/trading";
 import Sidebar from "./components/sidebar";
+import { LineData } from "lightweight-charts";
 
 export type Currency = "USD" | "EUR" | "GBP" | "CNY";
 interface CurrencyConversion {
@@ -27,7 +32,12 @@ export interface GasPrices {
   average: number;
 }
 
-export type Page = "gas-prices" | "markets" | "news" | "buy-sell";
+export type Page =
+  | "gas-prices"
+  | "markets"
+  | "news"
+  | "buy-sell"
+  | "trading-chart";
 function App() {
   const [gasPrices, setGasPrices] = useState<GasPrices>({
     safelow: 0,
@@ -39,23 +49,38 @@ function App() {
   const [nextUpdateInSeconds, setNextUpdateInSeconds] = useState(0);
   const [ETHPrice, setETHPrice] = useState({ price: 0, percent_change: 0 });
   const [historicalGasData, setHistoricalGasData] = useState<number[][]>([]);
+  const [ethereumEcosystem, setEthereumEcosystem] = useState<
+    EthereumEcosystem[]
+  >([]);
+  const [tradingChart, setTradingChart] = useState<{
+    data: LineData[];
+    name: string;
+  }>({ data: [], name: "" });
   const [currencyConversions, setCurrencyConversions] =
     useState<CurrencyConversion | null>(null);
 
   useEffect(() => {
     const asyncEffect = async () => {
-      const [currenciesRes, ethPriceRes, historicalGasRes] = await Promise.all([
+      const [
+        currenciesRes,
+        ethPriceRes,
+        historicalGasRes,
+        ethereumEcosystemRes,
+      ] = await Promise.all([
         fetchCurrency(),
         fetchEthPrice(),
         fetchHistoricalGas(),
+        fetchEthereumEcosystem(),
       ]);
       setETHPrice(ethPriceRes);
+
       setCurrencyConversions({
         EUR: currenciesRes.EUR,
         GBP: currenciesRes.GBP,
         CNY: currenciesRes.CNY,
       });
       setHistoricalGasData(historicalGasRes);
+      setEthereumEcosystem(ethereumEcosystemRes);
     };
     asyncEffect();
   }, []);
@@ -86,18 +111,32 @@ function App() {
     }
     return 0;
   };
+  const loadTradingChart = async (name: string) => {
+    // const data: LineData[] = await getLineChartData(name);
+    setTradingChart({
+      name,
+      data: [],
+      // data,
+    });
+    setPage("trading-chart");
+  };
 
   return (
     <div className="main-app">
       <Header
+        ethereumEcosystem={ethereumEcosystem}
         setCurrency={setCurrency}
         ethPrice={{
           price: convertToCurrency(ETHPrice.price),
           percent_change: ETHPrice.percent_change,
         }}
         currency={currency}
+        loadTradingChart={loadTradingChart}
       />
       <Sidebar changePage={(p) => setPage(p)} page={page} />
+      {page === "trading-chart" && (
+        <TradingChart name={tradingChart.name} data={tradingChart.data} />
+      )}
       {page === "gas-prices" && (
         <>
           <EthOverview
@@ -105,20 +144,18 @@ function App() {
             nextUpdateInSeconds={nextUpdateInSeconds}
           />
           <div className="charts">
-            <BarChart
-              avgGasPrice={gasPrices.average}
-              widths={{
-                slow: 125,
-                standard: 140,
-                fast: 155,
-              }}
-            />
+            <BarChart gasPrices={gasPrices} />
             <LineChart historicalGasData={historicalGasData} />
           </div>
           <ReceiveNotification />
         </>
       )}
-      {page === "markets" && <Markets />}
+      {page === "markets" && (
+        <Markets
+          ethereumEcosystem={ethereumEcosystem}
+          loadTradingChart={loadTradingChart}
+        />
+      )}
       {page === "buy-sell" && <BuySell />}
       {page === "news" && <CryptoNews />}
     </div>

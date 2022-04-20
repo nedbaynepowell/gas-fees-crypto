@@ -1,0 +1,10 @@
+.trading-chart-component {
+  width: calc(100% - 12.5px);
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-left: 100px;
+  #trading-chart {
+    width: 80%;
+    min-height: 650px;
+  }
+}

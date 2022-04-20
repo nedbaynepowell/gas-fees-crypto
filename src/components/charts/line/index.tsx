@@ -34,19 +34,17 @@ const LineChart = (props: Props) => {
     let maxAvg = 0;
     const newPointsFormatted = Object.values(newPointsRaw).map(
       (values: number[], index: number) => {
-        console.log("values", values);
         const sum = values.reduce((partialSum, a) => partialSum + a, 0);
         const avg = sum / values.length;
         if (avg > maxAvg) {
           maxAvg = avg;
         }
-        return [index, avg];
+        return [index, avg || 0];
       }
     );
     const newPointsNormalized = newPointsFormatted.map((point: number[]) => {
-      return [point[0] * 50, 150 - point[1] / (maxAvg / 150)];
+      return [point[0] * 50, 150 - point[1] / (maxAvg / 150) || 0];
     });
-    console.log("newPointsFormatted", newPointsFormatted);
 
     setPoints(newPointsNormalized.join("\n"));
   };
@@ -79,12 +77,7 @@ const LineChart = (props: Props) => {
           <p>100</p>
           <p>50</p>
         </div>
-        <svg
-          preserveAspectRatio="none"
-          height={305}
-          viewBox="0 0 300 151"
-          className="chart"
-        >
+        <svg width={300} height={305} viewBox="0 0 300 151" className="chart">
           <polyline
             fill="none"
             stroke="#0074d9"

@@ -4,17 +4,17 @@
   align-items: flex-start;
   position: fixed;
   left: 0;
-  height: calc(100vh - 55px);
+  height: calc(100vh - 50px);
   background-color: #f8f9fb;
   width: 60px;
   border-right: 1px solid #d5d5d7;
   padding-top: 30px;
   z-index: 2;
-  transition: width 0.5s ease-out 100ms;
+  transition: width 0.3s ease-out 100ms;
   overflow: hidden;
 
   &:hover {
-    width: 300px;
+    width: 240px;
     button {
       span {
         display: block;
