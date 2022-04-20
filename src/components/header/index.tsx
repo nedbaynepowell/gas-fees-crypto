@@ -30,7 +30,12 @@ const Header = (props: Props) => {
             loadTradingChart={props.loadTradingChart}
             ethereumEcosystem={props.ethereumEcosystem}
           />
-          <img className="question-logo" src={questionMark} alt="" />
+          <div className="tooltip">
+            <img className="question-logo" src={questionMark} alt="" />
+            <p className="tooltiptext">
+              Search for a coin to view its historical chart
+            </p>
+          </div>
         </div>
         <div className="right-bar">
           <GasPrice ethPrice={props.ethPrice} currency={props.currency} />

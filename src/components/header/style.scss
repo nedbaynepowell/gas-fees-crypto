@@ -25,6 +25,32 @@
       }
     }
   }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    .tooltiptext {
+      visibility: hidden;
+      min-width: 200px;
+      height: 26px;
+      background-color: #404451;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+      font-size: 12px;
+      line-height: 12px;
+
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 1;
+      bottom: -40px;
+      left: -10px;
+    }
+    &:hover .tooltiptext {
+      visibility: visible;
+    }
+  }
   .vertical-hr {
     width: 5px;
     background-color: #e9eaee;
