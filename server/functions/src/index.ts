@@ -7,7 +7,10 @@ import * as bodyParser from "body-parser";
 import * as moment from "moment";
 import * as sendGridClient from "@sendgrid/mail";
 import * as cors from "cors";
+import { parse } from "node-html-parser";
 import axios from "axios";
+import { getStorage } from "firebase-admin/storage";
+import { writeFileSync } from "fs";
 
 sendGridClient.setApiKey(functions.config().sendgrid.secret_key);
 
@@ -26,9 +29,27 @@ main.use(bodyParser.urlencoded({ extended: false }));
 dotenv.config();
 
 // Initialize Firebase Firestore
-initializeApp();
+initializeApp({
+  storageBucket: "gas-fees-crypto.appspot.com",
+});
 
 const db = getFirestore();
+
+app.get("/ethereumEcosystem", async (_req, res) => {
+  const bucket = getStorage().bucket("gas-fees-crypto.appspot.com");
+  const file = bucket.file("cryptocurrencies.json");
+  const data = await file.download();
+  const json = JSON.parse(data.toString());
+  res.send(json);
+});
+
+app.get("/fetchCurrency", async (_req, res) => {
+  const notification = await db.collection("currency").doc("latest").get();
+  console.log("notification.data()", notification.data());
+  const currencyData = notification.data();
+
+  res.json(currencyData);
+});
 
 app.post("/addUserToNotifications", async (req, res) => {
   try {
@@ -51,6 +72,18 @@ app.post("/addUserToNotifications", async (req, res) => {
   }
 });
 
+app.get("/historicalData", async (req, res) => {
+  try {
+    const response = (await axios.get(
+      "https://livdir.com/ethgaspricechart/log/all.json"
+    )) as any;
+
+    res.json(response.data);
+  } catch (error) {
+    console.log("historical data error", error);
+    res.json("/historicalData error");
+  }
+});
 app.get("/news", async (req, res) => {
   try {
     const publicApiKey = "2250e5a63f76438c8a5e178e63f26ae0";
@@ -68,10 +101,13 @@ app.get("/news", async (req, res) => {
 
 export const webApi = functions.https.onRequest(main);
 
-exports.scheduledFunction = functions.pubsub
+exports.scheduledFunctionGas = functions.pubsub
   .schedule("every 5 minutes")
   .onRun(async (_context) => {
-    const list = await db.collection("notification-list").where("last_nofitication_sent", "<", Date.now() - 1000 * 60 * 60).get();
+    const list = await db
+      .collection("notification-list")
+      .where("last_nofitication_sent", "<", Date.now() - 1000 * 60 * 60)
+      .get();
     const response = (await axios.get(
       "https://ethgasstation.info/json/ethgasAPI.json"
     )) as any;
@@ -80,13 +116,6 @@ exports.scheduledFunction = functions.pubsub
     list.docs.forEach(async (doc) => {
       const { email, threshold } = doc.data();
       // can send email if its been one day since last notification
-      console.log(
-        JSON.stringify({
-          email,
-          threshold,
-          average,
-        })
-      );
       // email if average gas price is less than threshold
       if (average < threshold) {
         const msg = {
@@ -112,4 +141,50 @@ exports.scheduledFunction = functions.pubsub
       }
     });
     return null;
+  });
+exports.scheduledFunctionCurrency = functions.pubsub
+  .schedule("every 24 hours")
+  .onRun(async (_context) => {
+    try {
+      const { data } = await axios
+        .get(
+          "https://api.currencyapi.com/v2/latest?apikey=a36f3760-9424-11ec-8c67-ddb97e380620"
+        )
+        .then((r) => r.data);
+      await db.collection("currency").doc("latest").update(data);
+      return "success";
+    } catch (e) {
+      console.log("scheduledFunctionCurrency error", e);
+      return false;
+    }
+  });
+
+exports.scheduledFunctionEth = functions.pubsub
+  .schedule("every 24 hours")
+  .onRun(async (_context) => {
+    const html = await axios
+      .get("https://coinmarketcap.com/view/ethereum-ecosystem/")
+      .then((r) => r.data);
+
+    const root = parse(html);
+
+    const script = JSON.parse(root.getElementById("__NEXT_DATA__").text);
+    const cleaned =
+      script.props.initialState.cryptocurrency.listingLatest.data.map(
+        (item: any) => ({
+          name: item.name,
+          symbol: item.symbol,
+          price: item.quote.USD.price,
+          percentChange24h: item.quote.USD.percentChange24h,
+          percentChange7d: item.quote.USD.percentChange7d,
+          marketCap: item.quote.USD.marketCap,
+          volume: item.quote.USD.volume24h,
+          circulatingSupply: item.circulatingSupply,
+        })
+      );
+
+    writeFileSync("./cryptocurrencies.json", JSON.stringify(cleaned));
+
+    const bucket = getStorage().bucket("gas-fees-crypto.appspot.com");
+    await bucket.upload("./cryptocurrencies.json");
   });

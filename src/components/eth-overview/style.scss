@@ -1,82 +1,56 @@
 .eth-overview {
-  width: 100vw;
-  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 280px;
   position: relative;
+  padding: 0 50px;
+  margin-top: 20px;
 
-  @media screen and (max-width: 900px) {
-    .eth-price {
-      .title {
-        font-size: 13px !important;
-      }
-      div.value {
-        font-size: 16px !important;
-        span.value {
-          font-size: 40px !important;
+  @media (max-width: 900px) {
+    .eth-price-container {
+      flex-direction: column !important;
+      .eth-price {
+        width: calc(100% - 20px) !important;
+        height: 40px !important;
+        padding: 10px !important;
+        display: flex;
+        margin-bottom: 10px;
+        .title {
+          font-size: 14px !important;
+          margin-bottom: 5px !important;
+          width: 60% !important;
         }
       }
-    }
-    .next-update {
-      font-size: 12px !important;
-    }
-    .date-container {
-      margin-top: 20px !important;
+      div.value {
+        font-size: 14px !important;
+        width: 40% !important;
+        text-align: right;
+      }
+      span.value {
+        font-size: 32px !important;
+      }
     }
   }
 
-  .next-update {
-    position: absolute;
-    left: 15px;
-    top: 0px;
+  h1 {
+    text-align: left;
+    width: 100%;
+    font-size: 20px;
   }
-  .date-container {
-    display: flex;
-    flex-direction: row;
-    img {
-      width: 25px;
-      margin-top: 14px;
-      margin-left: 10px;
-    }
-    .data {
-      text-align: center;
-      color: #abacab;
-    }
-  }
-  .what-gwei {
-    color: #4880ce;
-    text-align: center;
-    position: relative;
-    margin-bottom: 20px;
-    cursor: default;
-  }
-  .tooltip {
-    .tooltiptext {
-      visibility: hidden;
-      width: 220px;
-      background-color: black;
-      color: #fff;
-      text-align: center;
-      border-radius: 6px;
-      padding: 10px;
 
-      /* Position the tooltip */
-      position: absolute;
-      z-index: 1;
-    }
-    &:hover .tooltiptext {
-      visibility: visible;
-    }
-  }
   .eth-price-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 90%;
-    max-width: 910px;
+    width: 100%;
+
     .eth-price {
+      box-shadow: 0px 0px 1px 1px #dedede;
+      border-radius: 5px;
+      width: calc(30% - 40px);
+      padding: 20px;
+      background-color: white;
       .title {
         font-size: 26px;
         span {

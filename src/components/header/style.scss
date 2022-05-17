@@ -1,23 +1,152 @@
 .header {
   height: 50px;
-  background-color: #333333;
+  background-color: white;
   width: 100vw;
+  border-bottom: 1px solid #d5d5d7;
+  margin-left: -60px;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+
+  @media (max-width: 1070px) {
+    .title {
+      display: none;
+    }
+    .inner-header .left-bar {
+      min-width: 90px !important;
+    }
+    .search-bar {
+      img {
+        top: 11px !important;
+        height: 15px !important;
+      }
+      input {
+        height: 35px !important;
+      }
+    }
+  }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    .tooltiptext {
+      visibility: hidden;
+      min-width: 200px;
+      height: 26px;
+      background-color: #404451;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+      font-size: 12px;
+      line-height: 12px;
+
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 1;
+      bottom: -40px;
+      left: -10px;
+    }
+    &:hover .tooltiptext {
+      visibility: visible;
+    }
+  }
+  .vertical-hr {
+    width: 5px;
+    background-color: #e9eaee;
+    height: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
   .inner-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto;
+    margin-left: 15px;
+    padding-right: 50px;
+
+    .left-bar {
+      display: flex;
+      min-width: 160px;
+    }
+    .middle-bar {
+      display: flex;
+      width: 100%;
+    }
+    .right-bar {
+      display: flex;
+    }
+
+    .title {
+      font-size: 20px;
+      background: -webkit-linear-gradient(#40f4ff, #4081ff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+      margin: 0;
+      line-height: 50px;
+      width: 670px;
+      min-width: 150px;
+    }
+
+    .logo {
+      height: 35px;
+      margin-top: 7px;
+      margin-right: 60px;
+    }
+    .search-bar {
+      position: relative;
+      min-width: 380px;
+      img {
+        position: absolute;
+        left: 15px;
+        top: 13px;
+        height: 17px;
+      }
+    }
+    .question-logo {
+      height: 30px;
+      margin-top: 10px;
+    }
   }
-  p {
-    color: #bdbdbd;
-  }
-  select {
-    color: #bdbdbd;
-    background: none;
-    border: none;
+
+  section {
+    overflow: hidden;
+    position: relative;
+    width: 60px;
     height: 30px;
-    margin-top: 10px;
+    line-height: 38px;
+    margin-top: 7px;
+    cursor: pointer;
+    &::after {
+      content: "▼";
+      font-size: 0.8rem;
+      pointer-events: none; /* ▼ click triggers dropdown */
+      position: absolute;
+      right: 0.2rem;
+      top: 0.3rem;
+      z-index: 1;
+      color: #6b87eb;
+      line-height: 31px;
+    }
+    select {
+      color: #6b87eb;
+      font-weight: 600;
+      height: 18px;
+      width: 60px;
+      cursor: pointer;
+      border: none;
+
+      -webkit-appearance: none;
+      /* for webkit browsers */
+      -moz-appearance: none;
+      /* for firefox */
+      appearance: none;
+      /* for modern browsers */
+      &::after {
+        content: "▼";
+      }
+    }
   }
 }

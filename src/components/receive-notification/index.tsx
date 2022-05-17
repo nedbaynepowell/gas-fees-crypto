@@ -52,11 +52,12 @@ const ReceiveNotification = () => {
             </p>
           </div>
         ) : (
-          <>
+          <div className="form-input">
             <input
               type="email"
               placeholder="Email"
               onChange={handleEmailChange}
+              className="email"
             />
             <p className={`error${emailError ? "" : " hidden"}`}>
               Invalid email.
@@ -67,13 +68,14 @@ const ReceiveNotification = () => {
               type="number"
               min={minThreshold}
               max={maxThreshold}
+              className="threshold"
             />
             <p className={`error${thresholdError ? "" : " hidden"}`}>
               Invalid threshold. Must be between {minThreshold} and{" "}
               {maxThreshold}.
             </p>
             <button disabled={loading}>Watch this price</button>
-          </>
+          </div>
         )}
       </form>
     </div>

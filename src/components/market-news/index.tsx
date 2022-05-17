@@ -17,7 +17,7 @@ interface NewsItem {
   content: string;
 }
 
-const MarketNews = () => {
+const CryptoNews = () => {
   const [news, setNews] = useState<NewsItem[]>([]);
   useEffect(() => {
     const asyncEffect = async () => {
@@ -29,8 +29,8 @@ const MarketNews = () => {
 
   return (
     <div className="market-news">
+      <h2>Crypto News</h2>
       <div className="inner-container">
-        <h2>Market News</h2>
         {news.slice(0, 6).map((i, index) => (
           <div key={index} className="market-news-item">
             <div className="col large">
@@ -57,4 +57,4 @@ const MarketNews = () => {
     </div>
   );
 };
-export default MarketNews;
+export default CryptoNews;

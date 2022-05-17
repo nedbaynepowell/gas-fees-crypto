@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "gas-fees-crypto",
+  "private_key_id": "2136ff3efaf275ae206742c8fe12b67ea4ed1719",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEugIBADANBgkqhkiG9w0BAQEFAASCBKQwggSgAgEAAoIBAQC0UEIWF3Y4SPeL\nHgy00w8KAghf2kO+L+Y/mCb4HoBAybKzHr0CWNbK9leqgisyIB3OMOnIhuHbj1a9\nWNUTmiOHcJMRo1M486x6y52TFcB1VuGQEw6zGEXlurHDr1T2jssgPqwiTn0EXYsE\nF5jpt3R1PvhYNB3/zfIqmaCu+7P5ZdkRQqzsnvhF9Ca8iBwn4qesuBcaE9SZ2KGj\nrjovqgFQBH3NiySm4/BeFF5PzBVZvDHGGrv4w9BbYXKpu4OTPF5L3xq2kznwSuAc\n256PlfAe/PpXDuRJdbioMTxNkb+D1JVw97yWX5oAuLrxvfw2XrrbCpW6Lr4OsZiS\nHjDPVyGpAgMBAAECgf86seV79icwKzsUDglqKJ9nTUIXRvVw83v/4jIiknXX9nrf\n08xdoeL0LpGwRK8gTKlnH9pPbENuio+xveOefeO9iD0CK32WYbvDkoRjXLFJgP6W\nkkg2rwVnGAlwVE1T9Sd/V5IGQ4ZukASwpah2a+wnk61Ds7NlkaSYOWoU4S+0qZBe\nnOWnzwttDeK9f5LLmC9TwjUmZ0Celh9RPdwRQEZ/ShqE72yV2u36a+HkgvI3QC1h\nl5Fpwh2gCKdBNTZn4i2u1+fpbiH5UMVZwZCTLh79ClbPL4ATm+Z44ASeNv5TcJQv\nqzOPNapzIpSG1vK4wkSlkBY++EEWID0dSjC/gOECgYEA81Wn0CPYas+3KL/VxxGz\ns6CdyWWKkkves5lJpJ3HzMz+RYoJkjtPaoXk6VmF7miSDsSJiqV/gpOQ3WZvt40l\ns8f+q7dQnyNlEX/Fztfq6vos/Z+JTWl/UyDdWVHiSb9Lc2qnNSRKwMdFRu87iS+l\nu3Gw/zP17NRNF3FZPibBy/0CgYEAvbLeprY5I0TIUpYkDo15xCjyxcs8PymbfbI8\nGsO4MTBkoUyaUltcqzhjFcoOU8/KuJ3sfA+0V93iKNtGQ/6gIqGBcMXoWxhSHHB1\nTa0wDNFfXW9BDeCmmHq0r0rXkMdNAmfboFg+I/+x00G7W8w7E6tnt+EvFrACObvR\nUsxW/h0CgYBnHKXWykm7wTdQ+jFhgLvQY0BZhkC5C5NcMZmGOyHeRAN/fiXeJGnb\nrs84nqnlQ8SYo2nRKZ4lu9hIKU8vzYzraNUe+LgeJ0Z9qtIse0xdtBN6ia8J8al1\nlViWr98e9wPG7avbFfzjQc22aEunL1ygWGXzTpZoe/IK/AogDxZSFQKBgFympVqV\ne7i/GnxDup6k+MkXGuQCTI2o+7nbuMF1wFu+ABhL+r+owc0awEJfKrpCrgeXkm5R\nmUqlI5XC60HAdmQTr83ty3vamBgt0Q08PlC0XjibYxGtHJEytVc8XabnwLQhF8Lr\n9oXMmATPgPvn9x63Q/Qqdr5E/wFFu4oOJZr9AoGAai4pAbX2jT7ayPzQr0oCbCJv\nJ44+LcAbS/w2Vl0PQDISVRjSlXQ/wDZlTir5WWcYfEVrhNZC6CcDIYiOBh4CZqFZ\n8W9iuJfVoBf+tvz0IUz//5D7IiCl/c7B725y2LUWPeqc/7OOPZaZ+epdvApblUVL\n1x6FKBZ/GOmunV20WkQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-1lvbe@gas-fees-crypto.iam.gserviceaccount.com",
+  "client_id": "100933254292842782872",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-1lvbe%40gas-fees-crypto.iam.gserviceaccount.com"
+}
