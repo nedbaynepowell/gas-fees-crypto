@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.2f2f7244.css",
-    "main.js": "/static/js/main.1469961b.js",
+    "main.js": "/static/js/main.a61c724e.js",
     "static/media/nexo.png": "/static/media/nexo.24baebe10ee8019a21ad.png",
     "static/media/coinbase.png": "/static/media/coinbase.7a00d55e4f0286ba6a61.png",
     "static/media/cryptocom.png": "/static/media/cryptocom.df280644573bb67cdf62.png",
@@ -19,10 +19,10 @@
     "static/media/blue-form-icon.svg": "/static/media/blue-form-icon.8920520a6db8ea51c71cafacaeae475b.svg",
     "static/media/magnifying-glass.svg": "/static/media/magnifying-glass.ce3e01dc7b299aa70cce9c1a25a44312.svg",
     "main.2f2f7244.css.map": "/static/css/main.2f2f7244.css.map",
-    "main.1469961b.js.map": "/static/js/main.1469961b.js.map"
+    "main.a61c724e.js.map": "/static/js/main.a61c724e.js.map"
   },
   "entrypoints": [
     "static/css/main.2f2f7244.css",
-    "static/js/main.1469961b.js"
+    "static/js/main.a61c724e.js"
   ]
 }
