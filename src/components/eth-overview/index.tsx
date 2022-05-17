@@ -1,5 +1,3 @@
-import moment from "moment";
-import twitterLogo from "../../assets/images/twitter-logo.svg";
 import { GasPrices } from "../../App";
 import "./style.scss";
 

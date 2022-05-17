@@ -7,6 +7,7 @@ import "./style.scss";
 interface Props {
   data: LineData[];
   name: string;
+  loadMarkets(): void;
 }
 
 const data = {
@@ -12156,6 +12157,7 @@ const TradingChart = (props: Props) => {
   }, [props.data]);
   return (
     <div className="trading-chart-component">
+      <button onClick={() => props.loadMarkets()}>{'<'} Back</button>
       <h1>{props.name} Chart (last 7 days)</h1>
       <div id="trading-chart" ref={chartContainerRef} />
     </div>

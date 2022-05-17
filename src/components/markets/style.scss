@@ -33,23 +33,18 @@
     }
     tbody {
       tr {
-        height: 100px;
+        height: 40px;
         background-color: white;
         border-bottom: 1px solid #ccc;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.6;
+        }
         td {
           text-align: right;
           padding: 0 10px;
           font-size: 14px;
           font-weight: 600;
-          button {
-            cursor: pointer;
-            background-color: transparent;
-            border: none;
-            padding: 0;
-            &:hover {
-              opacity: .6;
-            }
-          }
         }
         :nth-child(1) {
           text-align: left;

@@ -50,9 +50,8 @@ function App() {
   const [nextUpdateInSeconds, setNextUpdateInSeconds] = useState(0);
   const [ETHPrice, setETHPrice] = useState({ price: 0, percent_change: 0 });
   const [historicalGasData, setHistoricalGasData] = useState<number[][]>([]);
-  const [ethereumEcosystem, setEthereumEcosystem] = useState<
-    EthereumEcosystem[]
-  >(ethDefaults);
+  const [ethereumEcosystem, setEthereumEcosystem] =
+    useState<EthereumEcosystem[]>(ethDefaults);
   const [tradingChart, setTradingChart] = useState<{
     data: LineData[];
     name: string;
@@ -136,7 +135,11 @@ function App() {
       />
       <Sidebar changePage={(p) => setPage(p)} page={page} />
       {page === "trading-chart" && (
-        <TradingChart name={tradingChart.name} data={tradingChart.data} />
+        <TradingChart
+          loadMarkets={() => setPage("markets")}
+          name={tradingChart.name}
+          data={tradingChart.data}
+        />
       )}
       {page === "gas-prices" && (
         <>

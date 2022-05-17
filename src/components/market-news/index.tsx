@@ -31,7 +31,7 @@ const CryptoNews = () => {
     <div className="market-news">
       <h2>Crypto News</h2>
       <div className="inner-container">
-        {news.slice(0, 6).map((i, index) => (
+        {news.map((i, index) => (
           <div key={index} className="market-news-item">
             <div className="col large">
               <div className="source-container">

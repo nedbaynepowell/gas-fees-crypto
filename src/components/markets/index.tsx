@@ -29,11 +29,9 @@ const Markets = (props: Props) => {
         </thead>
         <tbody>
           {props.ethereumEcosystem.map((item, index) => (
-            <tr key={index}>
+            <tr key={index} onClick={() => handleChartClick(item.name)}>
               <td>
-                <button onClick={() => handleChartClick(item.name)}>
-                  {item.name} <span>{item.symbol}</span>
-                </button>
+                {item.name} <span>{item.symbol}</span>
               </td>
               <td>${twoDecimals(item.price)}</td>
               <td
