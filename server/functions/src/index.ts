@@ -10,7 +10,6 @@ import * as cors from "cors";
 import { parse } from "node-html-parser";
 import axios from "axios";
 import { getStorage } from "firebase-admin/storage";
-import { writeFileSync } from "fs";
 
 sendGridClient.setApiKey(functions.config().sendgrid.secret_key);
 
@@ -183,8 +182,7 @@ exports.scheduledFunctionEth = functions.pubsub
         })
       );
 
-    writeFileSync("./cryptocurrencies.json", JSON.stringify(cleaned));
-
     const bucket = getStorage().bucket("gas-fees-crypto.appspot.com");
-    await bucket.upload("./cryptocurrencies.json");
+    const file = bucket.file("cryptocurrencies.json");
+    file.save(JSON.stringify(cleaned));
   });
