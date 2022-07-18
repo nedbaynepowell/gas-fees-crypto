@@ -23,7 +23,7 @@ const Header = (props: Props) => {
       <div className="inner-header">
         <div className="left-bar">
           <img className="logo" src={logo} alt="logo" />
-          <p className="title">Ethereum Crypto Market</p>
+          <p className="title">Gas fees crypto</p>
         </div>
         <div className="middle-bar">
           <SearchBar
