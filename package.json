@@ -11,6 +11,7 @@
     "@types/react": "^18.0.3",
     "@types/react-dom": "^18.0.0",
     "chart.js": "^3.7.1",
+    "easy-ftp": "^0.4.2",
     "highcharts": "^10.0.0",
     "lightweight-charts": "^3.8.0",
     "lodash": "^4.17.21",
@@ -18,7 +19,7 @@
     "react": "^18.0.0",
     "react-chartjs-2": "^4.1.0",
     "react-dom": "^18.0.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^4.0.3",
     "typescript": "^4.6.3",
     "web-vitals": "^2.1.4"
   },
@@ -48,6 +49,6 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.181",
-    "sass": "^1.50.0"
+    "sass": "^1.5.1"
   }
 }
