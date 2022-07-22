@@ -13,7 +13,7 @@ const BuySell = () => {
       <h3>Select an exchange below:</h3>
       <div className="exchanges">
         <button
-          onClick={() => open("https://www.coinbase.com")}
+          onClick={() => open("https://www.coinbase.com/join/baynep_v")}
           className="exchange"
         >
           <img src={Coinbase} alt="coinbase" />
@@ -25,7 +25,7 @@ const BuySell = () => {
           </p>
         </button>
         <button
-          onClick={() => open("https://www.nexo.io")}
+          onClick={() => open("https://nexo.io/ref/wgakrobcat?src=ios-link")}
           className="exchange"
         >
           <img src={Nexo} alt="nexo" />
@@ -37,7 +37,7 @@ const BuySell = () => {
           </p>
         </button>
         <button
-          onClick={() => open("https://www.crypto.com")}
+          onClick={() => open("https://crypto.com/app/vyhne5xext")}
           className="exchange"
         >
           <img src={Cryptocom} alt="crypto.com" />
