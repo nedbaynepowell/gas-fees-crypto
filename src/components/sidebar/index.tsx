@@ -18,6 +18,17 @@ const Sidebar = (props: Props) => {
   const enabled = (type: Page) => props.page === type;
   return (
     <div className="sidebar">
+           <button
+        disabled={enabled("markets")}
+        onClick={() => props.changePage("markets")}
+      >
+        {enabled("markets") ? (
+          <img className="active" src={blueMoneyIcon} alt="suitcase-icon" />
+        ) : (
+          <img src={moneyIcon} alt="suitcase-icon" />
+        )}
+        <span>Markets</span>
+      </button>
       <button
         disabled={enabled("gas-prices")}
         onClick={() => props.changePage("gas-prices")}
@@ -29,17 +40,7 @@ const Sidebar = (props: Props) => {
         )}
         <span>Ethereum Gas Prices</span>
       </button>
-      <button
-        disabled={enabled("markets")}
-        onClick={() => props.changePage("markets")}
-      >
-        {enabled("markets") ? (
-          <img className="active" src={blueMoneyIcon} alt="suitcase-icon" />
-        ) : (
-          <img src={moneyIcon} alt="suitcase-icon" />
-        )}
-        <span>Markets</span>
-      </button>
+ 
       <button
         disabled={enabled("news")}
         onClick={() => props.changePage("news")}

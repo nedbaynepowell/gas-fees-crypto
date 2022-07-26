@@ -34,8 +34,9 @@ export interface GasPrices {
 }
 
 export type Page =
-  | "gas-prices"
   | "markets"
+  | "gas-prices"
+
   | "news"
   | "buy-sell"
   | "trading-chart";
@@ -45,7 +46,7 @@ function App() {
     fast: 0,
     average: 0,
   });
-  const [page, setPage] = useState<Page>("gas-prices");
+  const [page, setPage] = useState<Page>("markets");
   const [currency, setCurrency] = useState<Currency>("USD");
   const [nextUpdateInSeconds, setNextUpdateInSeconds] = useState(0);
   const [ETHPrice, setETHPrice] = useState({ price: 0, percent_change: 0 });
