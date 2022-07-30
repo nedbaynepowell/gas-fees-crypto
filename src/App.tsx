@@ -34,9 +34,8 @@ export interface GasPrices {
 }
 
 export type Page =
-  | "markets"
   | "gas-prices"
-  
+  | "markets"
   | "news"
   | "buy-sell"
   | "trading-chart";
