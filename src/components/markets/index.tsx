@@ -14,7 +14,7 @@ const Markets = (props: Props) => {
 
   return (
     <div className="markets">
-      <h1>Markets on the Ethereum Network</h1>
+      <h1>Market watch</h1>
       <table>
         <thead>
           <tr>
